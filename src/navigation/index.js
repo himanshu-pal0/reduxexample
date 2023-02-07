@@ -6,20 +6,21 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 //Screens
-import HomePage from '../screens/Home';
-import Profile from '../screens/Profile';
+import HomePage from '../screens/Login';
+import {MyTabs}  from './Tabs';
+import { MyDrawer } from './Drawer';
 
 const Navigation = () => {
   const Stack = createStackNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      <Stack.Navigator initialRouteName='Login'
         screenOptions={{
-          headerShown: false,
+          headerShown: false, 
         }}>
-        <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name='MyTabs' component={MyTabs} />
+        <Stack.Screen name="Login" component={HomePage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

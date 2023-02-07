@@ -1,4 +1,6 @@
 import {API_FAILURE, API_SUCCESS, API_REQUEST} from './actionConst';
+import axios from 'react-native-axios';
+
 
 const apiRequested = () => ({
   type: API_REQUEST,
@@ -16,7 +18,10 @@ const apiFailure = data => ({
 
 export const hitAPI = () => dispatch => {
   dispatch(apiRequested);
-  fetch('https://reactnative.dev/movies.json')
+  axios({
+    method: 'get',
+    url: 'https://reactnative.dev/movies.json',
+  })
     .then(response => response.json())
     .then(json => {
       //apicallback(json);
