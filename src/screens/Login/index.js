@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { View, Text, ScrollView, Image, TextInput, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect } from 'react';
 
 
 
@@ -23,6 +24,10 @@ const Login = (props) => {
         }
 
     }
+
+    useEffect(()=> {
+        console.log("emial" , email.length)
+    })
 
     return (
         <SafeAreaView style={{ backgroundColor: '#fff', height: '100%', width: '100%' }}>

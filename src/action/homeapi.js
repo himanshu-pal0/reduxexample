@@ -1,5 +1,7 @@
 import {API_FAILURE, API_SUCCESS, API_REQUEST} from './actionConst';
 import axios from 'react-native-axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 const apiRequested = () => ({
@@ -16,15 +18,16 @@ const apiFailure = data => ({
   data,
 });
 
-export const hitAPI = () => dispatch => {
+export const hitAPI = () => async dispatch => {
   dispatch(apiRequested);
-  axios({
-    method: 'get',
-    url: 'https://reactnative.dev/movies.json',
+   axios({
+    method: "get",
+    url: "https://api.reward-dragon.com:8000/customers/customer-josh-reason-today/?user_profile=500/",
+    headers: { 'Authorization': 'c3fb04334a7c647338cdfd500e2997bb9898cf52' }
   })
-    .then(response => response.json())
+    .then((response) =>  response.json())
     .then(json => {
-      //apicallback(json);
+      // apicallback(json);
       dispatch(apiSuccess(json));
     })
     .catch(error => {

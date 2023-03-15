@@ -24,6 +24,8 @@ class Albumb extends Component {
     } catch (error) {
       console.log('Error in Fetch Movies List' + error);
     }
+
+    console.log("ertyjsdfg", + hitProfileAPI())
   };
 
   render() {
