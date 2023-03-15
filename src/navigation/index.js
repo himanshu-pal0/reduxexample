@@ -8,7 +8,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 //Screens
 import HomePage from '../screens/Login';
 import {MyTabs}  from './Tabs';
-import { MyDrawer } from './Drawer';
 
 const Navigation = () => {
   const Stack = createStackNavigator();
